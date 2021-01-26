@@ -5,7 +5,7 @@ import * as misc from '../misc'
 import React, { Component } from 'react'
 import { Alert, Modal, ModalHeader, ModalBody } from 'reactstrap'
 
-import DatePicker from 'react-date-picker'
+import DateTimePicker from 'react-datetime-picker'
 
 import * as actions from '../store/actions'
 import { connect } from 'react-redux'
@@ -134,8 +134,8 @@ class R_CreateJob extends Component {
 
             <br /><br />
 
-            <DatePicker
-              format="dd-MM-y"
+            <DateTimePicker
+              format="dd-MM-y h:mm a"
               value={this.state.deadline}
               onChange={(value) => { this.setState({ deadline: value }) }}
             />
@@ -251,7 +251,7 @@ class R_CreateJob extends Component {
               type="number"
               variant="outlined"
               required
-              label="Salary"
+              label="Salary ($)"
               onChange={(event) => { this.setState({ salary: event.target.value }) }}
             />
 

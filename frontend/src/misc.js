@@ -45,3 +45,9 @@ export const verifyNumber = (val) => {
   }
   return result
 }
+
+
+export const displayDate = (dateString) => {
+  let date = new Date(dateString)
+  return `${date.toLocaleDateString()} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}`
+}

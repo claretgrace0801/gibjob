@@ -148,7 +148,6 @@ class A_Dashboard extends Component {
       jobs = this.props.state?.jobs
 
       jobs = jobs?.filter(job => (new Date(job.deadline)) >= (new Date()))
-
       jobs = jobs?.filter(job => {
         if (job.applicants?.filter(item => item._id == this.state._id && item.status == 4).length) {
           return false
@@ -392,7 +391,7 @@ class A_Dashboard extends Component {
                   </Typography>
 
                   <Typography gutterBottom>
-                    Salary: {job.salary}
+                    Salary: $ {job.salary}
                   </Typography>
 
                   <Typography gutterBottom>
@@ -404,7 +403,7 @@ class A_Dashboard extends Component {
                   </Typography>
 
                   <Typography gutterBottom>
-                    Deadline: {(new Date(job.deadline)).toDateString()}
+                    Deadline: {misc.displayDate(job.deadline)}
                   </Typography>
 
                   <Typography gutterBottom>

@@ -5,7 +5,7 @@ import * as misc from '../misc'
 import React, { Component } from 'react'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 
-import DatePicker from 'react-date-picker'
+import DateTimePicker from 'react-datetime-picker'
 
 import * as actions from '../store/actions'
 import { connect } from 'react-redux'
@@ -137,11 +137,11 @@ class R_Dashboard extends Component {
               />
 
               <Typography gutterBottom>
-                Current Deadline: {(new Date(this.state.initialDeadline)).toDateString()}
+                Current Deadline: {misc.displayDate(this.state.initialDeadline)}
               </Typography>
 
-              <DatePicker
-                format="dd-MM-y"
+              <DateTimePicker
+                format="dd-MM-y h:mm a"
                 value={this.state.deadline}
                 onChange={(value) => { this.setState({ deadline: value }) }}
               />

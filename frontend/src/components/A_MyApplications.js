@@ -135,7 +135,7 @@ class A_MyApplications extends Component {
                   </Typography>
 
                   <Typography gutterBottom>
-                    Salary: {job.salary}
+                    Salary: $ {job.salary}
                   </Typography>
 
                   <Typography gutterBottom>
