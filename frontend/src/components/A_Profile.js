@@ -46,8 +46,8 @@ class A_Profile extends Component {
       this.state.skillModal = false
 
       this.state.institute = ""
-      this.state.startYear = 0
-      this.state.endYear = 0
+      this.state.startYear = ""
+      this.state.endYear = ""
 
       this.state.skill = ""
 
@@ -69,7 +69,7 @@ class A_Profile extends Component {
 
   formSubmit = async () => {
 
-    if (!misc.required([this.state.name, this.state.email, this.state.education, this.state.skills])
+    if (!misc.required([this.state.name, this.state.email])
       || !misc.validate([misc.verifyEmail], [this.state.email])) {
       alert("Enter Valid Details")
       return
@@ -258,6 +258,10 @@ class A_Profile extends Component {
                             alert("Enter all required details")
                             return
                           }
+                          if (parseInt(this.state.startYear) > parseInt(this.state.endYear)) {
+                            alert("Time travel has not been invented (yet?)")
+                            return
+                          }
                           this.setState({
                             education: [...this.state.education, {
                               id: `${this.state.institute}${this.state.startYear}${this.state.startYear}`,
@@ -267,6 +271,10 @@ class A_Profile extends Component {
                             }]
                           })
                           this.toggle()
+                          this.setState({
+                            startYear: "",
+                            endYear: ""
+                          })
                         }}
                       >Save
                       </Button>

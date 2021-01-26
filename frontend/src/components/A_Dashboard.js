@@ -84,6 +84,7 @@ class A_Dashboard extends Component {
 
       if ((this.state.sop.toString().split(" ")).length >= 250) {
         alert("Statement of Purpose should be < 250 words")
+        return
       }
 
       let application = {

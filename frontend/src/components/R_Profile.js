@@ -40,9 +40,19 @@ class R_Profile extends Component {
   }
 
   formSubmit = async () => {
-    if (!misc.required([this.state.name, this.state.email, this.state.contactNo, this.state.bio])
+    if (!misc.required([this.state.name, this.state.email])
       || !misc.validate([misc.verifyEmail, misc.verifyNumber], [this.state.email, this.state.contactNo])) {
       alert("Enter Valid Details")
+      return
+    }
+
+    if (this.state.contactNo && !misc.validate([misc.verifyNumber], [this.state.contactNo])) {
+      alert("Enter Valid contact number")
+      return
+    }
+
+    if (this.state.bio && (this.state.bio.toString().split(" ")).length >= 250) {
+      alert("Bio should be < 250 words")
       return
     }
 
@@ -128,7 +138,7 @@ class R_Profile extends Component {
               className={classes.submit}
               onClick={() => { this.formSubmit() }}>
               Save Changes
-                    </Button>
+            </Button>
 
           </form>
         </div>

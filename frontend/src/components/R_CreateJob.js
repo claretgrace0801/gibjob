@@ -77,6 +77,18 @@ class R_CreateJob extends Component {
       return
     }
 
+    if ((new Date()) > new Date(this.state.deadline)) {
+      alert("Do you expect applicants to time travel?")
+      return
+    }
+
+    if ((parseInt(this.state.maxApplications) < parseInt(this.state.maxPositions))
+      || parseInt(this.state.maxPositions) == 0
+      || parseInt(this.state.maxApplications) == 0) {
+      alert("Enter valid maximums")
+      return
+    }
+
     let job = {
       r_id: this.state._id,
       title: this.state.title,

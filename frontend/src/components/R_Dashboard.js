@@ -77,9 +77,17 @@ class R_Dashboard extends Component {
       return
     }
 
+    if ((parseInt(this.state.maxApplications) < parseInt(this.state.maxPositions))
+      || parseInt(this.state.maxPositions) == 0
+      || parseInt(this.state.maxApplications) == 0) {
+      alert("Enter valid maximums")
+      return
+    }
+
     if (this.state.deadline == null) {
       await this.setState({ deadline: this.state.initialDeadline })
     }
+
     let newValues = {
       deadline: this.state.deadline,
       maxApplications: this.state.maxApplications,
