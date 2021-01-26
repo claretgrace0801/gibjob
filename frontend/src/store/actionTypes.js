@@ -1,0 +1,8 @@
+export const CREATE_USER = "CREATE_USER"
+export const EDIT_RECRUITER = "EDIT_RECRUITER"
+export const EDIT_APPLICANT = "EDIT_APPLICANT"
+export const LOGIN = "LOGIN"
+export const CREATE_JOB = "CREATE_JOB"
+export const GET_JOBS = "GET_JOBS"
+export const GET_APPLICANTS = "GET_APPLICANTS"
+export const GET_APPLICANT = "GET_APPLICANT"
